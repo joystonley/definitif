@@ -4,6 +4,7 @@ from decouple import config
 from unipath import Path
 # settings.py
 from django.db.models import BigAutoField
+import dj_database_url
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -13,13 +14,13 @@ BASE_DIR = Path(__file__).parent
 CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = True
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -73,17 +74,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'stage',
-        'USER': 'root',
-        'PASSWORD': 'bogona',  # Mettez le mot de passe correct ici
-        'HOST': 'db',  # Mettez 'db' car c'est le nom du service dans docker-compose.yml
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
+    'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
 
