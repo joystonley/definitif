@@ -1,0 +1,11 @@
+services:
+  - name: web
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -c gunicorn_config.py
+    envVars:
+      DJANGO_SETTINGS_MODULE: "vaovao.settings"  # Assurez-vous de mettre le bon chemin
+
+    # Optionnel : définir d'autres configurations Render
+    # buildOptions:
+    #   baseImage: python:3.x
