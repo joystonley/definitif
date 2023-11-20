@@ -1,4 +1,4 @@
-﻿PyMySQL==1.0.2
+django-chartjs
 asgiref==3.7.2
 autopep8==2.0.4
 contourpy==1.0.6
