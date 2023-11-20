@@ -1,6 +1,7 @@
 django-chartjs
 asgiref==3.7.2
 autopep8==2.0.4
+psycopg2-binary
 contourpy==1.0.6
 cycler==0.11.0
 defusedxml==0.7.1
