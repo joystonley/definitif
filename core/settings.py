@@ -115,11 +115,13 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# settings.py
 
-# Définissez les répertoires pour les fichiers statiques et les fichiers médias
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'apps/static')]
+
+# Ajoutez le chemin vers le dossier statique de votre application
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'apps/static'),
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
