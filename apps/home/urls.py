@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.conf import settings
-from django.conf.urls.static import staticfiles_urlpatterns
+from django.conf.urls.static import static
 from django.contrib import admin
 
 
@@ -83,4 +83,6 @@ urlpatterns = [
     path('get_employee_info/<int:employe_id>/', views.get_employee_info, name='get_employee_info'),
     path('export_affectations_to_excel/', views.export_affectations_to_excel, name='export_affectations_to_excel'),
   
-] urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
